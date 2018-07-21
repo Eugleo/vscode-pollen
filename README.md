@@ -6,19 +6,19 @@ This extension adds support for the [Pollen publishing system][1], including:
 - Syntax highlighting for the special `pagetree` file
 - Code snippets tailored to the filetype, such as `highlight` block for the markup files and `define` function for the preprocessor files
 - Special syntax highlighting for `html.p` and `html.pp` files which combines the highlighting of both the html and the Pollen code
-- Embedded syntax highlighting for the most common languages in builtin as well as custom `highlight`-type functions in the Pollen markup file
+- Embedded syntax highlighting for the most common languages provided for builtin as well as custom `highlight`-type functions in the Pollen markup file
 
 ## Syntax highlighting
 
-_The theme used in the screenshots is VSCode's Monokai Dimmed. The code smples are either mine, or taken from [this article][2]._
+_The theme used in the screenshots is Monokai Pro. The code smples are either mine, taken from [this article][2], or [this book][6]._
 
 All common Pollen filetypes are supported; you can see how a sample `style.css.pp` looks like:
 
-
+![Code screenshot](./images/pollen-css-pp.PNG)
 
 The extension also has special handling for the `html.p` and `html.pp` files, which are commonly used to provide a template for your content; notice the highlighted `doc` and `here` constants:
 
-
+![Code screenshot](./images/pollen-html-template.PNG)
 
 Last but not least, the extension adds syntax highlighting to the `highlight` function in the Pollen markup mode. The function is exported by `pollen/unstable/pygments`, but you can also define your own highlighting functions and it will work with those as well. Currently the extension recognizes the following programming languages:
 
@@ -30,12 +30,11 @@ Last but not least, the extension adds syntax highlighting to the `highlight` fu
 - HTML
 - CSS
 
-Embedded LaTeX blocks get syntax highlighting as well, provided you use the recommended function/tag names `$` and `$$$`; that is, you embed LaTeX like this: `◊${\frac{1}{2}}`. 
+Embedded LaTeX blocks get syntax highlighting as well, provided you use the recommended function/tag names `$` and `$$`; that is, you embed LaTeX like this: `◊${\frac{1}{2}}`. 
 
 This is an image showing an embedded python snippet:
 
-
-
+![Code screenshot](./images/pollen-highlighting.PNG)
 
 If you are using `highlight.js` instead of `pygments` (or if you have your own highlighting function), be sure to name the tag as `highlight` or some string which has `"highlight"` in it; that is the rule the regexps are looking for. The language should then be supplied to the function as a pygments-style quoted symbol argument.
 
@@ -70,3 +69,4 @@ Should you have any feature request or an idea how to improve this extension, pl
 [3]: https://docs.racket-lang.org/pollen/second-tutorial.html
 [4]: https://docs.racket-lang.org/pollen/quick-tour.html
 [5]: https://docs.racket-lang.org/pollen/Getting_more_help.html
+[6]: https://github.com/otherjoel/try-pollen/tree/master/flatland

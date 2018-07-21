@@ -1,7 +1,7 @@
 {
     "name": "pollen",
     "displayName": "Pollen",
-    "description": "Quality syntax highlighting and snippets for the Racket/Pollen publishing system.",
+    "description": "Syntax highlighting and snippets for the Racket/Pollen publishing system.",
     "version": "0.0.1",
     "galleryBanner": {
         "color": "#FCDC3B",
@@ -11,6 +11,16 @@
     "engines": {
         "vscode": "^1.22.0"
     },
+    "licence": "SEE LICENSE IN LICENSE",
+    "homepage": "https://github.com/Eugleo/pollen-vscode/blob/master/README.md",
+    "bugs": {
+        "url": "https://github.com/Eugleo/pollen-vscode/issues",
+        "email": "wybitul.evzen@gmail.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Eugleo/pollen-vscode.git"
+    },
     "categories": [
         "Programming Languages", "Snippets"
     ],
@@ -18,7 +28,6 @@
         "pollen",
         "racket",
         "book",
-        "latex",
         "scribble"
     ],
     "publisher": "Evzen Wybitul",
