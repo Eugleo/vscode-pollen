@@ -1,0 +1,11 @@
+{
+    "name": "Pollen HTML preprocessor",
+    "scopeName": "text.html.pollen.preprocessor",
+    "filetypes": [
+        "html.pp"
+    ],
+    "patterns": [
+        { "include": "text.html.basic" },
+        { "include": "source.pollen.preprocessor" }
+    ]
+}

@@ -1,0 +1,274 @@
+{
+    "name": "Pollen Template",
+    "scopeName": "source.pollen.template",
+    "filetypes": [
+        "p"
+    ],
+    "patterns": [
+        { "include": "#embedded-pollen" }
+    ],
+    "repository": {
+        "embedded-pollen": {
+            "patterns": [
+                { "include": "#function"},
+                { "include": "#variable"},
+                { "include": "#string"},
+                { "include": "#comment"}
+            ]
+        },
+
+        "function": {
+            "patterns": [
+                {
+                    "name": "meta.embedded.block.pollen",
+                    "begin": "◊\\(",
+                    "beginCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "end": "\\)",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#constant" },
+                        { "include": "#function" },
+                        { "include": "#variable" },
+                        { "include": "#comment" },
+                        { "include": "#string" },
+                        { "include": "source.racket" },
+                        { "include": "#parentheses" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)((define-meta)|(when/splice)|(get-doc)|(get-metas)|(select\\*)|(select-from-doc)|(select-from-metas)|(select))(?=\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-body-parameter" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)((define-meta)|(when/splice)|(get-doc)|(get-metas)|(select\\*)|(select-from-doc)|(select-from-metas)|(select))(?=\\[\\.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)((define-meta)|(when/splice)|(get-doc)|(get-metas)|(select\\*)|(select-from-doc)|(select-from-metas)|(select))(?=\\[\\.*\\][^\\{])",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\])",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.parameters.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" }
+                    ]
+                },
+                {
+                    "name": "meta.embedded.block.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]+)(?=\\[.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter" }
+                    ]
+                },
+                {
+                    "name": "meta.embedded.block.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]+)(?=\\[.*\\][^\\{])",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\])",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.parameters.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" }
+                    ]
+                },
+                {
+                    "name": "meta.embedded.block.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]+)(?=\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-body-parameter" }
+                    ]
+                }
+            ]
+        },
+        "comment": {
+            "patterns": [
+                {
+                    "name": "comment.line.semicolon.pollen",
+                    "match": "◊;[^\\|\\{].*"
+                },
+                {
+                    "name": "comment.block.pollen",
+                    "begin": "◊;\\{",
+                    "end": "\\}",
+                    "patterns": [
+                        { "include": "#braces" }
+                    ]
+                }
+            ]
+        },
+        "variable": {
+            "patterns": [
+                {
+                    "match": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"]+)\\b",
+                    "captures": {
+                        "0": { "name": "meta.variable.pollen" },
+                        "1": { "name": "punctuation.definition.variable.pollen" },
+                        "2": { "name": "variable.other.pollen" }
+                    }
+                },
+                {
+                    "match": "(◊\\|)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"]+)(\\|)",
+                    "captures": {
+                        "1": { "name": "punctuation.definition.variable.pollen" },
+                        "2": { "name": "variable.other.pollen" },
+                        "3": { "name": "punctuation.definition.variable.pollen" }
+                    }
+                }
+            ]
+            
+        },
+        "constant": {
+            "patterns": [
+                {
+                    "name": "support.constant.doc.pollen",
+                    "match": "\\bdoc\\b"
+                },
+                {
+                    "name": "support.constant.here.pollen",
+                    "match": "\\bhere\\b"
+                }
+            ]
+        },
+        "string": {
+            "begin": "(◊)(\")",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.function.pollen" },
+                "2": { "name": "string.quoted.double.pollen" }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": { "name": "string.quoted.double.pollen" }
+            },
+            "contentName": "string.quoted.double.pollen",
+            "patterns": [
+                { "include": "#escaped-char" }
+            ]
+        },
+        "function-body-parameter": {
+            "name": "meta.function.body.pollen",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self"},
+                { "include": "#braces" }
+            ]
+        },
+        "function-parameters": {
+            "name": "meta.function.parameters.pollen",
+            "begin": "\\[",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.parameters.pollen" }
+            },
+            "end": "\\]",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.parameters.pollen" }
+            },
+            "patterns": [
+                { "include": "#constant" },
+                { "include": "#function"},
+                { "include": "#variable"},
+                { "include": "#comment"},
+                { "include": "#string"},
+                { "include": "#brackets" },
+                { "include": "source.racket" }
+            ]
+        },
+        "escaped-char": {
+            "name": "constant.character.escape.untitled.pollen",
+            "match": "\\\\."
+        },
+        "braces": {
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [
+                { "include": "$self" },
+                { "include": "#braces" }
+            ]
+        },
+        "brackets": {
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                { "include": "#constant" },
+                { "include": "#function"},
+                { "include": "#variable"},
+                { "include": "#comment"},
+                { "include": "#string"},
+                { "include": "source.racket" },
+                { "include": "#brackets" }
+            ]
+        },
+        "parentheses": {
+            "begin": "\\(",
+            "end": "\\)",
+            "patterns": [
+                { "include": "#constant" },
+                { "include": "#function"},
+                { "include": "#variable"},
+                { "include": "#comment"},
+                { "include": "#string"},
+                { "include": "source.racket" },
+                { "include": "#parentheses" }
+            ]
+        }
+    }
+}

@@ -1,0 +1,139 @@
+{
+    "name": "pollen",
+    "displayName": "Pollen",
+    "description": "Quality syntax highlighting and snippets for the Racket/Pollen publishing system.",
+    "version": "0.0.1",
+    "galleryBanner": {
+        "color": "#FCDC3B",
+        "theme": "light"
+    },
+    "icon": "./images/icon.png",
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "categories": [
+        "Programming Languages", "Snippets"
+    ],
+    "keywords": [
+        "pollen",
+        "racket",
+        "book",
+        "latex",
+        "scribble"
+    ],
+    "publisher": "Evzen Wybitul",
+    "contributes": {
+        "configurationDefaults": {
+            "[pollen-markup]": {
+                "editor.wordWrap": "bounded",
+                "editor.wordWrapColumn": 88,
+                "editor.wordBasedSuggestions": false
+            }
+        },
+        "languages": [
+            {
+                "id": "pollen-pagetree",
+                "aliases": ["Pollen Pagetree", "pollen pagetree"],
+                "extensions": [".ptree"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pollen-template",
+                "aliases": ["Pollen Template", "pollen template"],
+                "extensions": [".p"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pollen-template-html",
+                "aliases": ["Pollen HTML Template", "pollen html template"],
+                "extensions": [".html.p"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pollen-preprocessor",
+                "aliases": ["Pollen Preprocessor", "pollen preprocessor"],
+                "extensions": [".pp"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pollen-preprocessor-html",
+                "aliases": ["Pollen HTML Preprocessor"],
+                "extensions": [".html.pp"],
+                "configuration": "./language-configuration.json"
+            },
+            {
+                "id": "pollen-markup",
+                "aliases": ["Pollen Markup", "pollen markup"],
+                "extensions": [".pm"],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "pollen-pagetree",
+                "scopeName": "source.pollen.pagetree",
+                "path": "./syntaxes/pollen-pagetree.tmLanguage.json"
+            },
+            {
+                "language": "pollen-template",
+                "scopeName": "source.pollen.template",
+                "path": "./syntaxes/pollen-template.tmLanguage.json"
+            },
+            {
+                "language": "pollen-template-html",
+                "scopeName": "text.html.pollen.template",
+                "path": "./syntaxes/pollen-template-html.tmLanguage.json"
+            },
+            {
+                "language": "pollen-preprocessor",
+                "scopeName": "source.pollen.preprocessor",
+                "path": "./syntaxes/pollen-preprocessor.tmLanguage.json"
+            },
+            {
+                "language": "pollen-preprocessor-html",
+                "scopeName": "text.html.pollen.preprocessor",
+                "path": "./syntaxes/pollen-preprocessor-html.tmLanguage.json"
+            },
+            {
+                "language": "pollen-markup",
+                "scopeName": "text.pollen",
+                "path": "./syntaxes/pollen-markup.tmLanguage.json",
+                "embeddedLanguages": {
+                    "meta.embedded.block.racket": "racket",
+                    "meta.embedded.block.haskell": "haskell",
+                    "meta.embedded.block.python": "python",
+                    "meta.embedded.block.swift": "swift",
+                    "meta.embedded.block.css": "css",
+                    "meta.embedded.block.html": "html",
+                    "meta.embedded.block.js": "js"
+                }
+            }
+        ],
+        "snippets": [
+            {
+                "language": "pollen-pagetree",
+                "path": "./snippets/pollen-pagetree.json"
+            },
+            {
+                "language": "pollen-markup",
+                "path": "./snippets/pollen-markup.json"
+            },
+            {
+                "language": "pollen-preprocessor",
+                "path": "./snippets/pollen.json"
+            },
+            {
+                "language": "pollen-preprocessor-html",
+                "path": "./snippets/pollen.json"
+            },
+            {
+                "language": "pollen-template",
+                "path": "./snippets/pollen.json"
+            },
+            {
+                "language": "pollen-template-html",
+                "path": "./snippets/pollen.json"
+            }
+        ]
+    }
+}

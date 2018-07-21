@@ -1,0 +1,37 @@
+{
+    "lozenge": {
+        "prefix": "lz",
+        "body": [
+          "◊"
+        ],
+        "description": "Insert a lozenge"
+    },
+    "define_value": {
+        "prefix": "def",
+        "body": [
+          "◊(define ${1:id} ${2:value})"
+        ],
+        "description": "Define a new value"
+    },
+    "add_tag": {
+        "prefix": "tg",
+        "body": [
+          "◊${1:name}{${2:text}}${0}"
+        ],
+        "description": "Add a tag with text"
+    },
+    "add_tag_with_args": {
+        "prefix": "ta",
+        "body": [
+            "◊${1:name}[${2:arguments}]{${3:text}}${0}"
+        ],
+        "description": "Add a tag with text and arguments"
+    },
+    "variable": {
+        "prefix": "var",
+        "body": [
+          "◊|${1:id}|${0}"
+        ],
+        "description": "Reference a variable"
+    }
+}

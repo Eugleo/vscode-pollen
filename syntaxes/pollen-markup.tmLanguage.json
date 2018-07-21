@@ -1,0 +1,446 @@
+{
+    "name": "Pollen markup",
+    "scopeName": "text.pollen",
+    "filetypes": [
+        "pm"
+    ],
+    "firstLineMatch": "^#lang\\s+pollen",
+    "patterns": [
+        { "include": "#highlight-tags" },
+        { "include": "#latex-math" },
+        { "include": "source.pollen.preprocessor" }
+        
+    ],
+    "repository": {
+        "latex-math": {
+            "contentName": "meta.embedded.latex",
+            "begin": "(◊\\${1,2})(\\{)",
+            "beginCaptures": {
+                "1": { "name": "punctuation.definition.function.pollen" },
+                "2": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "#latex-braces" },
+                { "include": "text.tex.latex" }
+            ]
+        },
+        "embedded-code-custom-tag": {
+            "patterns": [
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[.*\\s+'racket\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/racket" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[(.*\\s+|\\s*)'(py|python|py3)\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/python" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[(.*\\s+|\\s*)'haskell\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/haskell" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[(.*\\s+|\\s*)'swift\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/swift" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[(.*\\s+|\\s*)'html\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/html" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[((.*\\s+|\\s*)|\\s*)'css\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/css" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)([^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*highlight[^\\s\\{\\}\\(\\)\\[\\]#\\|,\"'´\\\\;]*)(?=\\[(.*\\s+|\\s*)'(js|javascript)\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "entity.name.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/js" }
+                    ]
+                }
+            ]
+        },
+        "embedded-code-highlight-tag": {
+            "patterns": [
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\[\\s*'racket\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/racket" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\['(py|py3|python).*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/python" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\[\\s*'haskell\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/haskell" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\['swift.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/swift" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\[\\s*'html\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.html"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/html" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\[\\s*'css\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/css" }
+                    ]
+                },
+                {
+                    "name": "meta.function.expression.pollen",
+                    "begin": "(◊)(highlight)(?=\\[\\s*'(js|javascript)\\b.*\\]\\{)",
+                    "beginCaptures": {
+                        "1": { "name": "punctuation.definition.function.pollen"},
+                        "2": { "name": "support.function.pollen" }
+                    },
+                    "end": "(?<=\\})",
+                    "endCaptures": {
+                        "0": { "name": "punctuation.definition.function.pollen" }
+                    },
+                    "patterns": [
+                        { "include": "#function-parameters" },
+                        { "include": "#function-body-parameter/js" }
+                    ]
+                }
+            ]
+        },
+        "highlight-tags": {
+            "patterns": [
+                { "include": "#embedded-code-highlight-tag" },
+                { "include": "#embedded-code-custom-tag" }
+            ]
+        },
+        "function-body-parameter": {
+            "name": "meta.function.body.pollen",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/racket": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.racket",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.racket" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/haskell": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.haskell",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.haskell" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/python": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.python",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.python" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/swift": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.racket",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.swift" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/html": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.html",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "text.html.basic" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/css": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.css",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.css" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-body-parameter/js": {
+            "name": "meta.function.body.pollen",
+            "contentName": "meta.embedded.block.js",
+            "begin": "\\{",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "end": "\\}",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.body.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.js" },
+                { "include": "#braces" }
+            ]
+        },
+        "function-parameters": {
+            "name": "meta.function.parameters.pollen",
+            "begin": "\\[",
+            "beginCaptures": {
+                "0": { "name": "punctuation.definition.parameters.pollen" }
+            },
+            "end": "\\]",
+            "endCaptures": {
+                "0": { "name": "punctuation.definition.parameters.pollen" }
+            },
+            "patterns": [
+                { "include": "$self" },
+                { "include": "#brackets" },
+                { "include": "source.racket" }
+            ]
+        },
+        "braces": {
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [
+                { "include": "$self" },
+                { "include": "#braces" }
+            ]
+        },
+        "latex-braces": {
+            "begin": "\\{",
+            "end": "\\}",
+            "patterns": [
+                { "include": "source.pollen.preprocessor" },
+                { "include": "text.tex.latex" },
+                { "include": "#latex-braces" }
+            ]
+        },
+        "brackets": {
+            "begin": "\\[",
+            "end": "\\]",
+            "patterns": [
+                { "include": "$self" },
+                { "include": "source.racket" },
+                { "include": "#brackets" }
+            ]
+        }
+    }
+}

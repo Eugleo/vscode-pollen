@@ -1,0 +1,11 @@
+{
+    "name": "Pollen HTML template",
+    "scopeName": "text.html.pollen.template",
+    "filetypes": [
+        "html.p"
+    ],
+    "patterns": [
+        { "include": "text.html.basic" },
+        { "include": "source.pollen.template" }
+    ]
+}

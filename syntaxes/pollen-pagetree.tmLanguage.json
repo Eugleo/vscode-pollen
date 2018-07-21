@@ -1,0 +1,11 @@
+{
+    "name": "Pollen Pagetree",
+    "scopeName": "source.pollen.pagetree",
+    "firstLineMatch": "^#lang\\s+pollen/ptree\\s*$",
+    "filetypes": [
+        ".ptree"
+    ],
+    "patterns": [
+        { "include": "source.pollen.preprocessor" }
+    ]
+}
