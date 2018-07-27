@@ -1,11 +1,36 @@
 {
-    "name": "Pollen HTML template",
+    "name": "Pollen HTML Template",
     "scopeName": "text.html.pollen.template",
     "filetypes": [
         "html.p"
     ],
+    "injections": {
+        "meta.function-call.racket, meta.embedded.block.pollen": {
+            "patterns": [
+                {
+                    "name": "support.constant.doc.pollen",
+                    "match": "\\bdoc\\b"
+                },
+                {
+                    "name": "support.constant.here.pollen",
+                    "match": "\\bhere\\b"
+                }
+            ]
+        },
+        "meta.function-call.racket": {
+            "patterns": [
+                {
+                    "include": "source.pollen.preprocessor"
+                }
+            ]
+        }
+    },
     "patterns": [
-        { "include": "text.html.basic" },
-        { "include": "source.pollen.template" }
+        {
+            "include": "text.html.basic"
+        },
+        {
+            "include": "source.pollen.preprocessor"
+        }
     ]
 }

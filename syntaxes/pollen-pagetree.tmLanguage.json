@@ -5,7 +5,18 @@
     "filetypes": [
         ".ptree"
     ],
+    "injections": {
+        "meta.function-call.racket": {
+            "patterns": [
+                {
+                    "include": "source.pollen.preprocessor"
+                }
+            ]
+        }
+    },
     "patterns": [
-        { "include": "source.pollen.preprocessor" }
+        {
+            "include": "source.pollen.preprocessor"
+        }
     ]
 }

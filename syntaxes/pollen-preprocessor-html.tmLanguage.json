@@ -4,8 +4,21 @@
     "filetypes": [
         "html.pp"
     ],
+    "injections": {
+        "meta.function-call.racket": {
+            "patterns": [
+                {
+                    "include": "source.pollen.preprocessor"
+                }
+            ]
+        }
+    },
     "patterns": [
-        { "include": "text.html.basic" },
-        { "include": "source.pollen.preprocessor" }
+        {
+            "include": "text.html.basic"
+        },
+        {
+            "include": "source.pollen.preprocessor"
+        }
     ]
 }
