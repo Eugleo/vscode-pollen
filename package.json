@@ -1,10 +1,10 @@
 {
     "name": "pollen",
     "displayName": "Pollen",
-    "description": "Syntax highlighting and snippets for the Racket/Pollen publishing system.",
+    "description": "High quality syntax highlighting and snippets for the Racket/Pollen publishing system.",
     "version": "0.0.1",
     "galleryBanner": {
-        "color": "#FCDC3B",
+        "color": "#B4C8FF",
         "theme": "light"
     },
     "icon": "./images/icon.png",
