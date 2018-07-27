@@ -477,7 +477,7 @@
                     "include": "$self"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 },
                 {
                     "include": "#braces"
@@ -668,7 +668,7 @@
                     "include": "#brackets"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 }
             ]
         },
@@ -707,7 +707,7 @@
                     "include": "$self"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 },
                 {
                     "include": "#brackets"

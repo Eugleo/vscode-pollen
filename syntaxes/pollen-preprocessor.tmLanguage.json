@@ -5,7 +5,7 @@
         "pp"
     ],
     "injections": {
-        "L:meta.function-call.racket": {
+        "meta.function-call.racket": {
             "patterns": [
                 {
                     "include": "source.pollen.preprocessor"
@@ -48,7 +48,7 @@
                     "end": "(?<=\\))",
                     "patterns": [
                         {
-                            "include": "source.racket.pollen"
+                            "include": "source.racket"
                         }
                     ]
                 },
@@ -328,7 +328,7 @@
                     "include": "#brackets"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 }
             ]
         },
@@ -356,7 +356,7 @@
                     "include": "$self"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 },
                 {
                     "include": "#brackets"
@@ -371,7 +371,7 @@
                     "include": "$self"
                 },
                 {
-                    "include": "source.racket.pollen"
+                    "include": "source.racket"
                 },
                 {
                     "include": "#parentheses"
