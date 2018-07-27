@@ -17,11 +17,11 @@ _The theme used in the screenshots is customized One Dark Pro. The code samples 
 
 All common Pollen filetypes are supported; you can see how a sample `style.css.pp` looks like:
 
-![Pollen Preprocessor syntax highlighting](./images/pollen-preprocessor.png)
+![Pollen Preprocessor syntax highlighting](https://raw.githubusercontent.com/Eugleo/vscode-pollen/master/images/pollen-preprocessor.png)
 
 The extension also has special handling for the `html.p` and `html.pp` files, which are commonly used to provide a rendering template for the content:
 
-![Pollen Template syntax highlighting](./images/pollen-template.png)
+![Pollen Template syntax highlighting](https://raw.githubusercontent.com/Eugleo/vscode-pollen/master/images/pollen-template.png)
 
 The extension naturally also supports Pollen Markup; the highlighting is mostly similar to the preprocessor files, but has one extra feature:
 the embedded code (not necessarilly Racket code) in the `highlight` function is highlighted based on the embedded language semantics. Currently the extension recognizes the following programming languages:
@@ -38,7 +38,7 @@ Embedded LaTeX blocks get syntax highlighting as well, provided you use the reco
 
 This is an image showcasing the embedded language highlighting (Racket code):
 
-![Pollen Markup syntax highlighting](./images/pollen-markup.png)
+![Pollen Markup syntax highlighting](https://raw.githubusercontent.com/Eugleo/vscode-pollen/master/images/pollen-markup.png)
 
 ### Defining own highlight functions/tags
 
