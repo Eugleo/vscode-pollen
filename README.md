@@ -38,7 +38,7 @@ Embedded LaTeX blocks get syntax highlighting as well, provided you use the reco
 
 This is an image showcasing the embedded language highlighting (Racket code):
 
-![Pollen Markup syntax highlighting](./images/pollen-markup.PNG)
+![Pollen Markup syntax highlighting](./images/pollen-markup.png)
 
 ### Defining own highlight functions/tags
 
