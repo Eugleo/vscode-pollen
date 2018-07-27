@@ -22,7 +22,8 @@
         "url": "https://github.com/Eugleo/pollen-vscode.git"
     },
     "categories": [
-        "Programming Languages", "Snippets"
+        "Programming Languages",
+        "Snippets"
     ],
     "keywords": [
         "pollen",
@@ -42,38 +43,67 @@
         "languages": [
             {
                 "id": "pollen-pagetree",
-                "aliases": ["Pollen Pagetree", "pollen pagetree"],
-                "extensions": [".ptree"],
+                "aliases": [
+                    "Pollen Pagetree",
+                    "pollen pagetree"
+                ],
+                "extensions": [
+                    ".ptree"
+                ],
                 "configuration": "./language-configuration.json"
             },
             {
                 "id": "pollen-template",
-                "aliases": ["Pollen Template", "pollen template"],
-                "extensions": [".p"],
+                "aliases": [
+                    "Pollen Template",
+                    "pollen template"
+                ],
+                "extensions": [
+                    ".p"
+                ],
                 "configuration": "./language-configuration.json"
             },
             {
                 "id": "pollen-template-html",
-                "aliases": ["Pollen HTML Template", "pollen html template"],
-                "extensions": [".html.p"],
+                "aliases": [
+                    "Pollen HTML Template",
+                    "pollen html template"
+                ],
+                "extensions": [
+                    ".html.p"
+                ],
                 "configuration": "./language-configuration.json"
             },
             {
                 "id": "pollen-preprocessor",
-                "aliases": ["Pollen Preprocessor", "pollen preprocessor"],
-                "extensions": [".pp"],
+                "aliases": [
+                    "Pollen Preprocessor",
+                    "pollen preprocessor"
+                ],
+                "extensions": [
+                    ".pp"
+                ],
                 "configuration": "./language-configuration.json"
             },
             {
                 "id": "pollen-preprocessor-html",
-                "aliases": ["Pollen HTML Preprocessor"],
-                "extensions": [".html.pp"],
+                "aliases": [
+                    "Pollen HTML Preprocessor"
+                ],
+                "extensions": [
+                    ".html.pp"
+                ],
                 "configuration": "./language-configuration.json"
             },
             {
                 "id": "pollen-markup",
-                "aliases": ["Pollen Markup", "pollen markup"],
-                "extensions": [".pm"],
+                "aliases": [
+                    "Pollen Markup",
+                    "pollen markup"
+                ],
+                "extensions": [
+                    ".pm"
+                ],
                 "configuration": "./language-configuration.json"
             }
         ],
