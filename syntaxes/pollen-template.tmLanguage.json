@@ -1,6 +1,7 @@
 {
     "name": "Pollen Template",
     "scopeName": "source.pollen.template",
+    "firstLineMatch": "^#lang\\s+pollen\\s*$",
     "filetypes": [
         "p"
     ],

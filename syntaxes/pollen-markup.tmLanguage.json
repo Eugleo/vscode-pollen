@@ -4,7 +4,7 @@
     "filetypes": [
         "pm"
     ],
-    "firstLineMatch": "^#lang\\s+pollen",
+    "firstLineMatch": "^#lang\\s+pollen(\/markup)?\\s*$",
     "injections": {
         "L:meta.function-call.racket": {
             "patterns": [

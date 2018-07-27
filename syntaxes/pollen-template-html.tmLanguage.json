@@ -1,6 +1,7 @@
 {
     "name": "Pollen HTML Template",
     "scopeName": "text.html.pollen.template",
+    "firstLineMatch": "^#lang\\s+pollen\\s*$",
     "filetypes": [
         "html.p"
     ],

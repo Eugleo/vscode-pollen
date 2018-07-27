@@ -1,6 +1,7 @@
 {
     "name": "Pollen HTML preprocessor",
     "scopeName": "text.html.pollen.preprocessor",
+    "firstLineMatch": "^#lang\\s+pollen\\s*$",
     "filetypes": [
         "html.pp"
     ],

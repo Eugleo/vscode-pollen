@@ -1,6 +1,7 @@
 {
     "name": "Pollen Preprocessor",
     "scopeName": "source.pollen.preprocessor",
+    "firstLineMatch": "^#lang\\s+pollen(\/pre)?\\s*$",
     "filetypes": [
         "pp"
     ],
