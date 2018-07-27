@@ -32,6 +32,9 @@
         "scribble"
     ],
     "publisher": "Evzen Wybitul",
+    "author": {
+        "name": "Evzen Wybitul"
+    },
     "contributes": {
         "configurationDefaults": {
             "[pollen-markup]": {
